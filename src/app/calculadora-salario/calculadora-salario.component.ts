@@ -30,7 +30,11 @@ export class CalculadoraSalarioComponent {
     if (this.salario !== undefined) {
       this.calcularDescuentoRenta();
       this.descuentoAFP = this.salario * 0.0725;
-      this.descuentoISSS = this.salario * 0.03;
+      if (this.salario > 1000) {
+        this.descuentoISSS = Math.min(this.salario * 0.03, 30);
+      } else {
+        this.descuentoISSS = this.salario * 0.03;
+      }
       this.salarioLiquido = this.salario - this.descuentoAFP - this.descuentoISSS - (this.descuentoRenta || 0);
     }
   }
