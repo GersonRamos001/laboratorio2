@@ -17,11 +17,11 @@ export class CalculadoraSalarioComponent {
       if (this.salario >= 0.01 && this.salario <= 472.00) {
         this.descuentoRenta = 0;
       } else if (this.salario >= 472.01 && this.salario <= 895.24) {
-        this.descuentoRenta = (((this.salario - ((this.salario * 0.0725) + (this.salario * 0.033))) - 472) * 0.1 + 17.67);
+        this.descuentoRenta = (((this.salario - ((this.salario * 0.0725) + (this.salario * 0.03))) - 472) * 0.1 + 17.67);
       } else if (this.salario >= 895.25 && this.salario <= 2038.10) {
-        this.descuentoRenta = (((this.salario - ((this.salario * 0.0725) + (this.salario * 0.033))) - 895.24) * 0.2 + 60.00);
+        this.descuentoRenta = (((this.salario - ((this.salario * 0.0725) + (this.salario * 0.03))) - 895.24) * 0.2 + 60.00);
       } else if (this.salario >= 2038.11) {
-        this.descuentoRenta = (((this.salario - ((this.salario * 0.0725) + (this.salario * 0.033))) - 2038.10) * 0.3 + 288.57);
+        this.descuentoRenta = (((this.salario - ((this.salario * 0.0725) + (this.salario * 0.03))) - 2038.10) * 0.3 + 288.57);
       }
     }
   }
@@ -30,7 +30,7 @@ export class CalculadoraSalarioComponent {
     if (this.salario !== undefined) {
       this.calcularDescuentoRenta();
       this.descuentoAFP = this.salario * 0.0725;
-      this.descuentoISSS = this.salario * 0.033;
+      this.descuentoISSS = this.salario * 0.03;
       this.salarioLiquido = this.salario - this.descuentoAFP - this.descuentoISSS - (this.descuentoRenta || 0);
     }
   }
